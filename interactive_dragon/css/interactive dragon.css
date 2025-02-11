@@ -1,0 +1,55 @@
+body,
+html {
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	background: rgb(60, 97, 153);
+	touch-action: none;
+}
+
+svg {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: #c9c9c9;
+	cursor: pointer;
+	filter: sepia(20%);
+}
+.ray{
+	stroke: url(#grad1);
+	stroke-width: 6;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	fill: none;
+	opacity: 0;
+	filter: url(#glow);
+	animation: flash 3s infinite ease-in-out, spark 0.1s infinite ease-in-out;
+}
+
+@keyframes spark {
+	0% { opacity: 0; }
+	10% { opacity: 1; stroke-width: 4; } 
+	20% { opacity: 0; stroke-width: 6; } 
+	30% { opacity: 1; stroke-width: 8; } 
+	40% { opacity: 0; stroke-width: 10; } 
+	50% { opacity: 0; }
+	100% { opacity: 0; }
+}
+
+@keyframes flash {
+	0% { opacity: 0; }
+	30% { opacity: 1; }
+	50% { opacity: 1; }
+	100% { opacity: 0; }
+}
+
+
+filter #glow {
+	x: -50%;
+	y: -50%;
+	width: 200%;
+	height: 200%;
+}
